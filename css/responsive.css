@@ -1,0 +1,86 @@
+/* Mobile Responsive Styles */
+
+/* Tablet and Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .section-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .section-text h2 {
+        font-size: 2rem;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+
+    .section-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .section-link {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+
+    .hero-content p {
+        font-size: 1.4rem;
+    }
+
+    .section-text h2 {
+        font-size: 3rem;
+    }
+
+    .section-text p {
+        font-size: 1.2rem;
+    }
+}
