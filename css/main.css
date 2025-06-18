@@ -75,11 +75,7 @@ body {
     color: white;
     margin-top: 70px;
     min-width:0;
-}
-
-img.hero {
-    max-width: 100%; 
-    height: auto;
+    width:100%;
 }
 
 .hero-content h1 {
