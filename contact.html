@@ -257,46 +257,7 @@
             emailjs.init('INOeNCpwVDq_ZQX22');
         })();
 
-        // Form handling with multiple email service options
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('contact-form');
-            const submitBtn = document.getElementById('submit-btn');
-            const btnText = document.getElementById('btn-text');
-            const btnLoading = document.getElementById('btn-loading');
-            const formMessages = document.getElementById('form-messages');
-            const inputs = form.querySelectorAll('input, select, textarea');
-            
-            // Add focus effects
-            inputs.forEach(input => {
-                input.addEventListener('focus', function() {
-                    this.style.borderColor = '#3498db';
-                    this.style.boxShadow = '0 0 5px rgba(52, 152, 219, 0.3)';
-                });
-                
-                input.addEventListener('blur', function() {
-                    this.style.borderColor = '#ddd';
-                    this.style.boxShadow = 'none';
-                });
-            });
-
-            // Show message function
-            function showMessage(message, type) {
-                formMessages.style.display = 'block';
-                formMessages.innerHTML = message;
-                if (type === 'success') {
-                    formMessages.style.background = '#d4edda';
-                    formMessages.style.color = '#155724';
-                    formMessages.style.border = '1px solid #c3e6cb';
-                } else {
-                    formMessages.style.background = '#f8d7da';
-                    formMessages.style.color = '#721c24';
-                    formMessages.style.border = '1px solid #f5c6cb';
-                }
-                
-                // Scroll to message
-                formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-
+        
             // Method 1: EmailJS (Recommended)
             function sendWithEmailJS(formData) {
                 const templateParams = {
@@ -311,29 +272,9 @@
                 };
 
                 // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS IDs
-                return emailjs.send('service_ahh1orb', 'template_i2a4dew', templateParams);
+                return emailjs.sendForm('service_ahh1orb', 'template_i2a4dew', templateParams);
             }
 
-            // Method 4: Simple mailto fallback
-            function sendWithMailto(formData) {
-                const subject = 'New Project Inquiry from ' + formData.get('first_name') + ' ' + formData.get('last_name');
-                const body = `
-Name: ${formData.get('first_name')} ${formData.get('last_name')}
-Email: ${formData.get('email')}
-Phone: ${formData.get('phone')}
-Project Type: ${formData.get('project_type') || 'Not specified'}
-Timeline: ${formData.get('timeline') || 'Not specified'}
-Budget: ${formData.get('budget') || 'Not specified'}
-
-Project Details:
-${formData.get('message')}
-                `.trim();
-
-                const mailtoLink = `mailto:example@destination.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                window.location.href = mailtoLink;
-                
-                return Promise.resolve();
-            }
 
             // Form submission handler
             form.addEventListener('submit', async function(e) {
