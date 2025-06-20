@@ -12,7 +12,7 @@
         (function() {
             // https://dashboard.emailjs.com/admin/account
             emailjs.init({
-              publicKey: "YOUR_PUBLIC_KEY",
+              publicKey: "INOeNCpwVDq_ZQX22",
             });
         })();
     </script>
@@ -21,7 +21,7 @@
             document.getElementById('contact-form').addEventListener('submit', function(event) {
                 event.preventDefault();
                 // these IDs from the previous steps
-                emailjs.sendForm('contact_service', 'contact_form', this)
+                emailjs.sendForm('service_ahh1orb', 'template_i2a4dew', this)
                     .then(() => {
                         console.log('SUCCESS!');
                     }, (error) => {
