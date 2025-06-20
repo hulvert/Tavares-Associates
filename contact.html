@@ -300,7 +300,6 @@
             // Method 1: EmailJS (Recommended)
             function sendWithEmailJS(formData) {
                 const templateParams = {
-                    to_email: 'example@destination.com',
                     from_name: formData.get('first_name') + ' ' + formData.get('last_name'),
                     from_email: formData.get('email'),
                     phone: formData.get('phone'),
