@@ -88,31 +88,32 @@
         <div class="container">
             <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: #2c3e50;">Request a Free Estimate</h2>
             <div style="max-width: 800px; margin: 0 auto;">
-                <form style="background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <!-- Form with EmailJS integration -->
+                <form id="contact-form" style="background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
                         <div>
                             <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">First Name *</label>
-                            <input type="text" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                            <input type="text" name="first_name" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
                         </div>
                         <div>
                             <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Last Name *</label>
-                            <input type="text" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                            <input type="text" name="last_name" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
                         </div>
                     </div>
                     
                     <div style="margin-bottom: 20px;">
                         <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Email Address *</label>
-                        <input type="email" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                        <input type="email" name="email" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
                     </div>
                     
                     <div style="margin-bottom: 20px;">
                         <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Phone Number *</label>
-                        <input type="tel" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                        <input type="tel" name="phone" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
                     </div>
                     
                     <div style="margin-bottom: 20px;">
                         <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Project Type</label>
-                        <select style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                        <select name="project_type" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
                             <option value="">Select a service...</option>
                             <option value="kitchen">Kitchen Remodeling</option>
                             <option value="bathroom">Bathroom Renovation</option>
@@ -120,15 +121,15 @@
                             <option value="renovation">Whole House Renovation</option>
                             <option value="roofing">Roofing & Siding</option>
                             <option value="commercial">Commercial Project</option>
-                            <option value="custom">Finishing / Decorating</option>
-                            <option value="custom">Minor Repairs</option>
+                            <option value="finishing">Finishing / Decorating</option>
+                            <option value="repairs">Minor Repairs</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
                     
                     <div style="margin-bottom: 20px;">
                         <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Project Timeline</label>
-                        <select style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                        <select name="timeline" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
                             <option value="">When would you like to start?</option>
                             <option value="asap">As soon as possible</option>
                             <option value="1-3months">1-3 months</option>
@@ -140,22 +141,25 @@
                     
                     <div style="margin-bottom: 20px;">
                         <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Budget Range</label>
-                        <select style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                        <select name="budget" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
                             <option value="">Select budget range...</option>
-                            <option value="under25k">Under $5,000</option>
-                            <option value="25k-50k">$5,000 - $10,000</option>
-                            <option value="50k-100k">$10,000 - $20,000</option>
-                            <option value="100k-200k">$20,000 - $50,000</option>
-                            <option value="200k+">$50,000+</option>
+                            <option value="under5k">Under $5,000</option>
+                            <option value="5k-10k">$5,000 - $10,000</option>
+                            <option value="10k-20k">$10,000 - $20,000</option>
+                            <option value="20k-50k">$20,000 - $50,000</option>
+                            <option value="50k+">$50,000+</option>
                         </select>
                     </div>
                     
                     <div style="margin-bottom: 30px;">
                         <label style="display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50;">Project Details *</label>
-                        <textarea required style="width: 100%; height: 120px; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; resize: vertical; transition: border-color 0.3s;" placeholder="Please describe your project in detail. Include any specific requirements, preferences, or questions you may have."></textarea>
+                        <textarea name="message" required style="width: 100%; height: 120px; padding: 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; resize: vertical; transition: border-color 0.3s;" placeholder="Please describe your project in detail. Include any specific requirements, preferences, or questions you may have."></textarea>
                     </div>
                     
-                    <button type="submit" style="background: #e74c3c; color: white; padding: 15px 40px; border: none; border-radius: 5px; font-size: 18px; font-weight: bold; cursor: pointer; transition: background 0.3s ease, transform 0.2s ease; width: 100%;">Send My Request</button>
+                    <button type="submit" id="submit-btn" style="background: #e74c3c; color: white; padding: 15px 40px; border: none; border-radius: 5px; font-size: 18px; font-weight: bold; cursor: pointer; transition: background 0.3s ease, transform 0.2s ease; width: 100%;">
+                        <span id="btn-text">Send My Request</span>
+                        <span id="btn-loading" style="display: none;">Sending...</span>
+                    </button>
                 </form>
             </div>
         </div>
@@ -213,6 +217,9 @@
     </footer>
 
     <script src="js/main.js"></script>
+
+    <!-- Include EmailJS SDK -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emailjs-com/3.2.0/email.min.js"></script>
     
     <!-- Form Enhancement Script -->
     <script>
@@ -238,6 +245,130 @@
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 alert('Thank you for your request! We will contact you within 24 hours to schedule your free consultation.');
+            });
+        });
+    </script>
+
+    <!-- Form Handling Script -->
+    <script>
+        // Initialize EmailJS
+        (function() {
+            // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+            emailjs.init('INOeNCpwVDq_ZQX22');
+        })();
+
+        // Form handling with multiple email service options
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const btnLoading = document.getElementById('btn-loading');
+            const formMessages = document.getElementById('form-messages');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            
+            // Add focus effects
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.borderColor = '#3498db';
+                    this.style.boxShadow = '0 0 5px rgba(52, 152, 219, 0.3)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.style.borderColor = '#ddd';
+                    this.style.boxShadow = 'none';
+                });
+            });
+
+            // Show message function
+            function showMessage(message, type) {
+                formMessages.style.display = 'block';
+                formMessages.innerHTML = message;
+                if (type === 'success') {
+                    formMessages.style.background = '#d4edda';
+                    formMessages.style.color = '#155724';
+                    formMessages.style.border = '1px solid #c3e6cb';
+                } else {
+                    formMessages.style.background = '#f8d7da';
+                    formMessages.style.color = '#721c24';
+                    formMessages.style.border = '1px solid #f5c6cb';
+                }
+                
+                // Scroll to message
+                formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            // Method 1: EmailJS (Recommended)
+            function sendWithEmailJS(formData) {
+                const templateParams = {
+                    to_email: 'example@destination.com',
+                    from_name: formData.get('first_name') + ' ' + formData.get('last_name'),
+                    from_email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    project_type: formData.get('project_type') || 'Not specified',
+                    timeline: formData.get('timeline') || 'Not specified',
+                    budget: formData.get('budget') || 'Not specified',
+                    message: formData.get('message'),
+                    reply_to: formData.get('email')
+                };
+
+                // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS IDs
+                return emailjs.send('service_ahh1orb', 'template_i2a4dew', templateParams);
+            }
+
+            // Method 4: Simple mailto fallback
+            function sendWithMailto(formData) {
+                const subject = 'New Project Inquiry from ' + formData.get('first_name') + ' ' + formData.get('last_name');
+                const body = `
+Name: ${formData.get('first_name')} ${formData.get('last_name')}
+Email: ${formData.get('email')}
+Phone: ${formData.get('phone')}
+Project Type: ${formData.get('project_type') || 'Not specified'}
+Timeline: ${formData.get('timeline') || 'Not specified'}
+Budget: ${formData.get('budget') || 'Not specified'}
+
+Project Details:
+${formData.get('message')}
+                `.trim();
+
+                const mailtoLink = `mailto:example@destination.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = mailtoLink;
+                
+                return Promise.resolve();
+            }
+
+            // Form submission handler
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                btnText.style.display = 'none';
+                btnLoading.style.display = 'inline';
+                formMessages.style.display = 'none';
+                
+                const formData = new FormData(form);
+                
+                try {
+                    // Try EmailJS first (most reliable for client-side)
+                    if (typeof emailjs !== 'undefined') {
+                        await sendWithEmailJS(formData);
+                        showMessage('Thank you for your inquiry! We will contact you within 24 hours to schedule your free consultation.', 'success');
+                        form.reset();
+                    } else {
+                        // Fallback to mailto
+                        await sendWithMailto(formData);
+                        showMessage('Your email client should open with the inquiry details. Please send the email to complete your request.', 'success');
+                    }
+                    
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    showMessage('There was an issue sending your message. Please try again or call us directly at (555) 123-4567.', 'error');
+                }
+                
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
             });
         });
     </script>
