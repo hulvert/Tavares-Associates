@@ -18,14 +18,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Mobile menu toggle functionality
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
 
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-    }
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navLinks.classList.toggle('show');
+                    
+                    // Change hamburger icon
+                    if (navLinks.classList.contains('show')) {
+                        mobileMenuBtn.innerHTML = '✕';
+                    } else {
+                        mobileMenuBtn.innerHTML = '☰';
+                    }
+                });
+
+                // Close mobile menu when clicking on a nav link
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('show');
+                        mobileMenuBtn.innerHTML = '☰';
+                    });
+                });
+            }
 
     // Add scroll effect to navbar
     window.addEventListener('scroll', () => {
